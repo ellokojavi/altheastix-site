@@ -78,10 +78,16 @@ a{color:inherit}
 .ticket-main .tk-label{font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--magenta)}
 .ticket-main h3{font-family:var(--display);font-size:clamp(1.3rem,4vw,1.8rem);line-height:1.15;margin:.35rem 0 .5rem}
 .ticket-main p{font-size:.95rem;margin-bottom:1.2rem;color:var(--ink-soft)}
-.tk-form{display:flex;gap:.7rem;flex-wrap:wrap}
-.tk-form input[type=email]{flex:1;min-width:200px;padding:.8rem 1rem;font-family:var(--body);font-size:1rem;border:3px solid var(--ink);border-radius:12px;background:#fff}
-.tk-form button{font-family:var(--body);font-weight:700;font-size:1rem;background:var(--tangerine);color:var(--ink);border:3px solid var(--ink);border-radius:12px;padding:.8rem 1.4rem;cursor:pointer;box-shadow:4px 5px 0 var(--ink);transition:transform .15s ease, box-shadow .15s ease}
-.tk-form button:hover{transform:translate(-2px,-2px);box-shadow:6px 7px 0 var(--ink)}
+/* EmailOctopus embed slot. min-height reserves the space the script fills,
+   so the ticket doesn't jump when the form renders. The rules below only
+   bite if the embed renders into our DOM; if it sandboxes into an iframe
+   they're inert and EmailOctopus's own (brand-matched) styling shows. */
+.tk-embed{min-height:104px}
+.tk-embed form{margin:0}
+.tk-embed input[type=email]{font-family:var(--body);font-size:1rem;padding:.8rem 1rem;border:3px solid var(--ink);border-radius:12px;background:#fff}
+.tk-embed button,.tk-embed input[type=submit]{font-family:var(--body);font-weight:700;font-size:1rem;background:var(--tangerine);color:var(--ink);border:3px solid var(--ink);border-radius:12px;padding:.8rem 1.4rem;cursor:pointer;box-shadow:4px 5px 0 var(--ink);transition:transform .15s ease, box-shadow .15s ease}
+.tk-embed button:hover,.tk-embed input[type=submit]:hover{transform:translate(-2px,-2px);box-shadow:6px 7px 0 var(--ink)}
+.tk-noscript{font-size:.9rem;color:var(--ink-soft)}
 .tk-fine{font-size:.78rem;color:var(--ink-faint);margin-top:.9rem}
 .perfs{position:absolute;top:-9px;left:0;right:0;display:flex;justify-content:space-evenly;pointer-events:none}
 .perfs i{width:14px;height:14px;background:var(--ink);border-radius:50%}
@@ -118,7 +124,7 @@ footer{background:var(--ink);padding:3.5rem 1.25rem 2.5rem;text-align:center}
 @media (prefers-reduced-motion: reduce){
   .marquee-track{animation:none}
   html{scroll-behavior:auto}
-  .btn,.song,.ticket,.tk-form button{transition:none}
+  .btn,.song,.ticket,.tk-embed button,.tk-embed input[type=submit]{transition:none}
 }
 </style>
 </head>
@@ -159,14 +165,20 @@ footer{background:var(--ink);padding:3.5rem 1.25rem 2.5rem;text-align:center}
       <span class="tk-label">The Altheastix Family ★ General Admission</span>
       <h3>Get on the list</h3>
       <p>First dibs on new drops, restock alerts on the classics, and a little extra love in your inbox.</p>
-      <!-- TODO: wire to EmailOctopus.
-           In EmailOctopus: Lists → your list → Forms → copy the form action URL
-           and field name, then replace FORM_ACTION_URL below. -->
-      <form class="tk-form" method="post" action="FORM_ACTION_URL">
-        <label for="email" class="sr-only" style="position:absolute;left:-9999px">Email address</label>
-        <input id="email" type="email" name="field_0" placeholder="you@example.com" required autocomplete="email">
-        <button type="submit">Count me in ★</button>
-      </form>
+      <!-- EmailOctopus inline embed. The ticket chrome around it is ours;
+           only the email field + button are rendered by their script, styled
+           to match in EmailOctopus (tangerine button, ink text/border).
+           Form 3a20966a-99a4-11f1-8c1e-d12546154605 · list 5d27f50c-99a1-11f1-8b9a-ef86de0c49a1
+           This external script is a deliberate exception to the
+           no-dependencies rule — see CLAUDE.md. -->
+      <div class="tk-embed">
+        <script async src="https://eomail5.com/form/3a20966a-99a4-11f1-8c1e-d12546154605.js" data-form="3a20966a-99a4-11f1-8c1e-d12546154605"></script>
+        <noscript>
+          <p class="tk-noscript">Signing up needs JavaScript on. If you'd rather not,
+          email <a href="mailto:sales@altheastix.com">sales@altheastix.com</a> and
+          we'll add you to the list by hand.</p>
+        </noscript>
+      </div>
       <p class="tk-fine">One email a month-ish. Unsubscribe anytime — no hard feelings, we promise.</p>
     </div>
   </div>
