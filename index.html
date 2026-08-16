@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Altheastix — Hand-packed stickers from Seattle</title>
+<meta name="description" content="Premium vinyl stickers, decals & magnets for music lovers. Hand-packed in Seattle with free fast shipping. Join the Altheastix family.">
+<link rel="icon" href="assets/AltheastixLogo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stage:#1B1226;        /* deep stage purple-black */
+  --stage-2:#2A1B3D;      /* lighter stage wash */
+  --poster:#FFF3DC;       /* poster cream */
+  --magenta:#F23D8A;      /* hot poster ink */
+  --tangerine:#FF6B2C;    /* electric orange */
+  --gold:#FFC53D;         /* marquee gold */
+  --violet:#8C5BD9;       /* haze violet */
+  --ink:#17101F;          /* near-black ink */
+  --haze:#CDBFE0;         /* lavender-grey, subheads on dark */
+  --haze-2:#B9A9D4;       /* deeper lavender, card body on dark */
+  --ink-soft:#4A3D5C;     /* body text on poster cream */
+  --ink-faint:#7A6C90;    /* fine print & legal */
+  --display:'Shrikhand', cursive;
+  --body:'Space Grotesk', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--stage);color:var(--poster);line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* ── Marquee strip ─────────────────────────── */
+.marquee{background:var(--gold);color:var(--ink);overflow:hidden;white-space:nowrap;border-bottom:3px solid var(--ink)}
+.marquee-track{display:inline-block;padding:.45rem 0;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;animation:scroll 28s linear infinite}
+.marquee-track span{margin:0 1.2rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── Hero: the poster ──────────────────────── */
+.hero{position:relative;text-align:center;padding:4.5rem 1.25rem 0;background:
+  radial-gradient(ellipse 90% 55% at 50% -5%, rgba(140,91,217,.45), transparent 60%),
+  radial-gradient(ellipse 45% 35% at 15% 25%, rgba(242,61,138,.22), transparent 70%),
+  radial-gradient(ellipse 45% 35% at 85% 25%, rgba(255,107,44,.22), transparent 70%),
+  var(--stage);}
+.hero::before{content:"";position:absolute;inset:0;background:url('assets/AltheastixLogo.png') repeat;background-size:220px;opacity:.05;pointer-events:none}
+.hero > *{position:relative}
+.est{display:inline-block;font-size:.78rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:.3rem 1rem;margin-bottom:1.4rem}
+.wordmark{font-family:var(--display);font-size:clamp(3rem, 11vw, 6.5rem);line-height:1;letter-spacing:.01em;
+  background:linear-gradient(100deg, var(--gold) 15%, var(--tangerine) 40%, var(--magenta) 75%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 0 rgba(23,16,31,.9)) drop-shadow(0 7px 0 rgba(242,61,138,.35));
+  transform:rotate(-1.5deg)}
+.tagline{margin:1.3rem auto 0;max-width:34ch;font-size:clamp(1.05rem,2.6vw,1.3rem);font-weight:500;color:var(--poster)}
+.tagline em{font-style:normal;color:var(--gold)}
+.hero-ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin:2rem 0 0}
+.btn{display:inline-block;font-weight:700;text-decoration:none;padding:.85rem 1.7rem;border-radius:14px;font-size:1rem;letter-spacing:.02em;transition:transform .15s ease, box-shadow .15s ease;border:3px solid var(--ink)}
+.btn:hover{transform:translate(-2px,-3px)}
+.btn-primary{background:var(--magenta);color:#fff;box-shadow:5px 6px 0 var(--ink)}
+.btn-primary:hover{box-shadow:8px 9px 0 var(--ink)}
+.btn-ghost{background:transparent;color:var(--poster);border-color:var(--poster);box-shadow:5px 6px 0 rgba(255,243,220,.25)}
+.btn-ghost:hover{box-shadow:8px 9px 0 rgba(255,243,220,.35)}
+
+/* crowd silhouette */
+.crowd{display:block;width:100%;margin-top:2.8rem}
+.crowd svg{display:block;width:100%;height:auto}
+
+/* ── Ticket signup ─────────────────────────── */
+.show{background:var(--ink);padding:4.5rem 1.25rem 5rem;position:relative}
+.show h2{font-family:var(--display);text-align:center;font-size:clamp(1.7rem,5vw,2.6rem);color:var(--gold);transform:rotate(-1deg);margin-bottom:.6rem}
+.show .sub{text-align:center;max-width:46ch;margin:0 auto 2.6rem;color:var(--haze)}
+.ticket{max-width:640px;margin:0 auto;background:var(--poster);color:var(--ink);border-radius:18px;display:flex;transform:rotate(-1.2deg);box-shadow:0 18px 40px rgba(0,0,0,.45), 0 0 0 3px var(--ink);position:relative}
+.ticket:hover{transform:rotate(-.4deg)}
+.ticket{transition:transform .25s ease}
+.stub{writing-mode:vertical-rl;text-orientation:mixed;display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--magenta);color:#fff;font-weight:700;letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;padding:1rem .8rem;border-radius:18px 0 0 18px;border-right:3px dashed rgba(23,16,31,.55)}
+.ticket-main{flex:1;padding:1.7rem 1.6rem 1.9rem}
+.ticket-main .tk-label{font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--magenta)}
+.ticket-main h3{font-family:var(--display);font-size:clamp(1.3rem,4vw,1.8rem);line-height:1.15;margin:.35rem 0 .5rem}
+.ticket-main p{font-size:.95rem;margin-bottom:1.2rem;color:var(--ink-soft)}
+.tk-form{display:flex;gap:.7rem;flex-wrap:wrap}
+.tk-form input[type=email]{flex:1;min-width:200px;padding:.8rem 1rem;font-family:var(--body);font-size:1rem;border:3px solid var(--ink);border-radius:12px;background:#fff}
+.tk-form button{font-family:var(--body);font-weight:700;font-size:1rem;background:var(--tangerine);color:var(--ink);border:3px solid var(--ink);border-radius:12px;padding:.8rem 1.4rem;cursor:pointer;box-shadow:4px 5px 0 var(--ink);transition:transform .15s ease, box-shadow .15s ease}
+.tk-form button:hover{transform:translate(-2px,-2px);box-shadow:6px 7px 0 var(--ink)}
+.tk-fine{font-size:.78rem;color:var(--ink-faint);margin-top:.9rem}
+.perfs{position:absolute;top:-9px;left:0;right:0;display:flex;justify-content:space-evenly;pointer-events:none}
+.perfs i{width:14px;height:14px;background:var(--ink);border-radius:50%}
+.perfs.bottom{top:auto;bottom:-9px}
+
+/* ── Hits / shop ───────────────────────────── */
+.hits{background:var(--stage-2);padding:4.5rem 1.25rem;text-align:center;position:relative}
+.hits::before{content:"";position:absolute;inset:0;background:url('assets/AltheastixLogo.png') repeat;background-size:300px;opacity:.04;pointer-events:none}
+.hits > *{position:relative}
+.hits h2{font-family:var(--display);font-size:clamp(1.7rem,5vw,2.6rem);color:var(--tangerine);transform:rotate(1deg)}
+.hits .sub{max-width:52ch;margin:.7rem auto 2.4rem;color:var(--haze)}
+.setlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem;max-width:900px;margin:0 auto 2.4rem;text-align:left}
+.song{background:rgba(23,16,31,.55);border:2px solid rgba(255,243,220,.18);border-radius:14px;padding:1.2rem 1.3rem;transition:transform .15s ease, border-color .15s ease}
+.song:hover{transform:translateY(-4px);border-color:var(--gold)}
+.song .n{font-weight:700;color:var(--gold);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+.song h3{font-size:1.08rem;margin:.3rem 0 .25rem;color:var(--poster)}
+.song p{font-size:.88rem;color:var(--haze-2)}
+
+/* ── Footer ────────────────────────────────── */
+footer{background:var(--ink);padding:3.5rem 1.25rem 2.5rem;text-align:center}
+.quote{max-width:56ch;margin:0 auto 2rem;font-size:1.05rem;color:var(--haze);font-style:italic}
+.quote b{display:block;margin-top:.5rem;font-style:normal;color:var(--gold);font-size:.85rem;letter-spacing:.15em;text-transform:uppercase}
+.foot-links{display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;font-size:.92rem;margin-bottom:1.6rem}
+.foot-links a{color:var(--poster);text-decoration:none;border-bottom:2px solid var(--magenta)}
+.foot-links a:hover{color:var(--gold)}
+.legal{font-size:.78rem;color:var(--ink-faint)}
+
+@media (max-width:560px){
+  .stub{font-size:.62rem;letter-spacing:.2em}
+  .hero{padding-top:3.2rem}
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{animation:none}
+  html{scroll-behavior:auto}
+  .btn,.song,.ticket,.tk-form button{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>★ Free fast shipping, always</span><span>★ Hand-packed in Seattle</span><span>★ 50,000+ stickers shipped</span><span>★ 99.3% positive feedback</span><span>★ Premium vinyl, built for water bottles &amp; bumpers</span>
+    <span>★ Free fast shipping, always</span><span>★ Hand-packed in Seattle</span><span>★ 50,000+ stickers shipped</span><span>★ 99.3% positive feedback</span><span>★ Premium vinyl, built for water bottles &amp; bumpers</span>
+  </div>
+</div>
+
+<header class="hero">
+  <span class="est">Seattle, WA ★ est. with love</span>
+  <h1 class="wordmark">Altheastix</h1>
+  <p class="tagline">Premium vinyl stickers for people whose water bottle is a <em>setlist</em>. Hand-packed, hand-addressed, shipped free.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="#join">Join the family</a>
+    <a class="btn btn-ghost" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">Shop on eBay →</a>
+  </div>
+
+  <!-- crowd silhouette: hands in the air -->
+  <div class="crowd" aria-hidden="true">
+    <svg viewBox="0 0 1440 190" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="var(--ink)" d="M0,190 L0,150 C10,150 14,118 22,118 C30,118 32,96 40,96 C46,96 48,112 54,118 C62,124 66,150 80,150 C92,150 96,120 108,118 C112,84 124,84 128,102 C132,84 144,88 146,110 C158,114 160,150 172,148 C184,146 188,118 200,118 C206,92 218,92 222,112 C234,116 236,148 250,148 C262,148 268,124 278,120 C280,94 294,94 298,114 C306,80 318,84 320,106 C330,110 332,146 346,146 C358,146 362,118 374,116 C378,88 390,88 394,108 C404,112 406,144 420,146 C434,148 438,116 450,116 C454,92 466,92 470,110 C480,116 482,146 496,146 C508,146 514,120 524,118 C528,82 542,86 544,106 C552,88 562,92 564,112 C574,118 576,148 590,148 C602,148 606,118 618,116 C622,92 634,92 638,112 C648,116 650,146 664,146 C676,146 682,122 692,118 C694,90 708,90 712,110 C720,78 732,82 734,104 C744,110 746,144 760,144 C772,144 776,116 788,114 C792,88 804,88 808,108 C818,112 820,142 834,144 C848,146 852,114 864,114 C868,90 880,90 884,108 C894,114 896,144 910,144 C922,144 928,120 938,116 C942,84 956,88 958,108 C966,90 976,94 978,114 C988,120 990,148 1004,148 C1016,148 1020,118 1032,116 C1036,92 1048,92 1052,112 C1062,116 1064,146 1078,146 C1090,146 1096,122 1106,118 C1108,90 1122,90 1126,110 C1134,80 1146,84 1148,106 C1158,112 1160,146 1174,146 C1186,146 1190,116 1202,114 C1206,90 1218,90 1222,108 C1232,114 1234,144 1248,144 C1260,144 1266,120 1276,116 C1280,86 1294,90 1296,110 C1304,92 1314,96 1316,116 C1326,122 1328,150 1342,150 C1356,150 1360,122 1372,120 C1376,96 1388,96 1392,116 C1400,122 1402,152 1416,152 C1424,152 1428,136 1440,134 L1440,190 Z"/>
+    </svg>
+  </div>
+</header>
+
+<section class="show" id="join">
+  <h2>Your ticket in 🎫</h2>
+  <p class="sub">New designs, restocks &amp; the occasional surprise — straight from the shop, about once a month. Never spam, never a cover charge.</p>
+
+  <div class="ticket">
+    <div class="perfs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="stub" aria-hidden="true">Admit One</div>
+    <div class="ticket-main">
+      <span class="tk-label">The Altheastix Family ★ General Admission</span>
+      <h3>Get on the list</h3>
+      <p>First dibs on new drops, restock alerts on the classics, and a little extra love in your inbox.</p>
+      <!-- TODO: wire to EmailOctopus.
+           In EmailOctopus: Lists → your list → Forms → copy the form action URL
+           and field name, then replace FORM_ACTION_URL below. -->
+      <form class="tk-form" method="post" action="FORM_ACTION_URL">
+        <label for="email" class="sr-only" style="position:absolute;left:-9999px">Email address</label>
+        <input id="email" type="email" name="field_0" placeholder="you@example.com" required autocomplete="email">
+        <button type="submit">Count me in ★</button>
+      </form>
+      <p class="tk-fine">One email a month-ish. Unsubscribe anytime — no hard feelings, we promise.</p>
+    </div>
+  </div>
+</section>
+
+<section class="hits">
+  <h2>Tonight&rsquo;s setlist</h2>
+  <p class="sub">A taste of what comes out of the shop. Every order ships free, tucked safe on a backing card, in an envelope addressed by an actual human hand.</p>
+  <div class="setlist">
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">
+      <span class="n">01 · The classics</span>
+      <h3>Grateful Dead collection</h3>
+      <p>Stealies, bears, terrapins &amp; friends — the heart of the shop.</p>
+    </a>
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">
+      <span class="n">02 · Loud &amp; fast</span>
+      <h3>Hot rod &amp; garage</h3>
+      <p>Fink-style monsters, flames, and chrome-age mischief.</p>
+    </a>
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">
+      <span class="n">03 · Deep cuts</span>
+      <h3>Rock, jam &amp; beyond</h3>
+      <p>Classic rock, jam bands, fútbol, breweriana &amp; parody gems.</p>
+    </a>
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">
+      <span class="n">04 · The encore</span>
+      <h3>Bundles &amp; packs</h3>
+      <p>Curated multi-sticker sets — more music per envelope.</p>
+    </a>
+  </div>
+  <a class="btn btn-primary" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">Browse the full catalog on eBay →</a>
+</section>
+
+<footer>
+  <p class="quote">&ldquo;Once in a while you get shown the light, in the strangest of places if you look at it right.&rdquo;<b>— Grateful Dead, Scarlet Begonias</b></p>
+  <nav class="foot-links">
+    <a href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">eBay store</a>
+    <a href="mailto:sales@altheastix.com">sales@altheastix.com</a>
+    <a href="#join">Join the family</a>
+  </nav>
+  <p class="legal">© 2026 Altheastix ★ Hand-packed with love &amp; good music in Seattle, WA</p>
+</footer>
+
+</body>
+</html>
