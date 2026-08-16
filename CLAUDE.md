@@ -32,7 +32,8 @@ repo — never copy customer data, sales figures, or CRM material here.
 - Marquee stat claims (units shipped, feedback %) must be sanity-checked against
   the live eBay storefront before any copy change, and rounded DOWN, never up.
   These are public claims about the business — understating is free, overstating
-  is not.
+  is not. Last verified by Javier 2026-08-16: "50,000+ stickers shipped" and
+  "99.3% positive feedback" are both accurate as published.
 - HARD RULES (eBay policy): no discount language tied to buying off eBay, no
   price comparisons vs eBay, no "contact us to order direct" copy. The page
   invites newsletter signup and links to the eBay store. Nothing else until the
