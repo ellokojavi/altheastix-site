@@ -99,6 +99,8 @@ a{color:inherit}
 .song .n{font-weight:700;color:var(--gold);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
 .song h3{font-size:1.08rem;margin:.3rem 0 .25rem;color:var(--poster)}
 .song p{font-size:.88rem;color:var(--haze-2)}
+.song .go{display:inline-block;margin-top:.7rem;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tangerine)}
+.song:hover .go{color:var(--gold)}
 
 /* ── Footer ────────────────────────────────── */
 footer{background:var(--ink);padding:3.5rem 1.25rem 2.5rem;text-align:center}
@@ -172,27 +174,34 @@ footer{background:var(--ink);padding:3.5rem 1.25rem 2.5rem;text-align:center}
 
 <section class="hits">
   <h2>Tonight&rsquo;s setlist</h2>
-  <p class="sub">A taste of what comes out of the shop. Every order ships free, tucked safe on a backing card, in an envelope addressed by an actual human hand.</p>
+  <p class="sub">Four ways in. Every order ships free, tucked safe on a backing card, in an envelope addressed by an actual human hand.</p>
+  <!-- Each card is a DISTINCT in-store search. Verify all four return
+       real results before trusting them; adjust the ?_nkw= term if a
+       search comes back thin. -->
   <div class="setlist">
-    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=grateful+dead" target="_blank" rel="noopener">
       <span class="n">01 · The classics</span>
-      <h3>Grateful Dead collection</h3>
+      <h3>Grateful Dead</h3>
       <p>Stealies, bears, terrapins &amp; friends — the heart of the shop.</p>
+      <span class="go">Take me there →</span>
     </a>
-    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=hot+rod" target="_blank" rel="noopener">
       <span class="n">02 · Loud &amp; fast</span>
       <h3>Hot rod &amp; garage</h3>
       <p>Fink-style monsters, flames, and chrome-age mischief.</p>
+      <span class="go">Take me there →</span>
     </a>
-    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=classic+rock" target="_blank" rel="noopener">
       <span class="n">03 · Deep cuts</span>
-      <h3>Rock, jam &amp; beyond</h3>
-      <p>Classic rock, jam bands, fútbol, breweriana &amp; parody gems.</p>
+      <h3>Classic rock &amp; jam</h3>
+      <p>The bands that keep the shop humming — plus fútbol, breweriana &amp; parody gems.</p>
+      <span class="go">Take me there →</span>
     </a>
-    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=sticker+pack" target="_blank" rel="noopener">
       <span class="n">04 · The encore</span>
       <h3>Bundles &amp; packs</h3>
       <p>Curated multi-sticker sets — more music per envelope.</p>
+      <span class="go">Take me there →</span>
     </a>
   </div>
   <a class="btn btn-primary" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">Browse the full catalog on eBay →</a>
