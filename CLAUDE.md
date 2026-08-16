@@ -40,8 +40,15 @@ repo — never copy customer data, sales figures, or CRM material here.
   Stripe Bestsellers phase is explicitly launched.
 
 ## Live TODOs
-- Signup form `action` is the placeholder `FORM_ACTION_URL` — replace with the
-  EmailOctopus embedded-form action URL + field name once the list exists.
+- Signup is wired to EmailOctopus via their inline embed script (form
+  `3a20966a-99a4-11f1-8c1e-d12546154605`, list `5d27f50c-99a1-11f1-8b9a-ef86de0c49a1`).
+  EmailOctopus retired the raw form-POST endpoint, so the script is the only
+  supported route — Javier approved it 2026-08-16 as an explicit, one-off
+  exception to the no-dependencies rule. It is the ONLY external script on the
+  page; do not treat it as precedent for adding others. The ticket-stub chrome
+  stays ours; only the email field and button come from EmailOctopus, styled to
+  match there. Worth revisiting: `https://eomail5.com/form/<id>` answers 405 to
+  GET, so a direct POST may be possible — that would let the script go away.
 - Bestsellers/Stripe section: not built. When added, "setlist" card hrefs move
   from eBay links to Stripe Payment Links (bundles first).
 
