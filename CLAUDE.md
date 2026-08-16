@@ -1,0 +1,50 @@
+# CLAUDE.md — altheastix-site
+
+Public landing page for altheastix.com. This repo is a deployable artifact;
+business knowledge, data, and strategy live in the private `altheastix-knowledge`
+repo — never copy customer data, sales figures, or CRM material here.
+
+## What this is
+- One static page: `index.html` (all CSS/JS inline). No build step, no framework,
+  no dependencies. Keep it that way unless Javier explicitly decides otherwise.
+- `join/index.html` — redirect to `/#join`. This URL is printed on physical
+  backing cards as a QR target. NEVER rename or remove this path.
+- `assets/AltheastixLogo.png` — bolt-pattern logo (favicon + background texture).
+- Deploys via GitHub Pages, custom domain altheastix.com (DNS on Cloudflare).
+
+## Design system (do not drift)
+- Palette: stage `#1B1226` · stage-2 `#2A1B3D` · poster cream `#FFF3DC` ·
+  magenta `#F23D8A` · tangerine `#FF6B2C` · gold `#FFC53D` · violet `#8C5BD9` ·
+  ink `#17101F`. All defined as CSS variables in `:root` — change tokens there,
+  never hardcode colors inline.
+- Type: Shrikhand (display, used sparingly) / Space Grotesk (body). Google Fonts.
+- Aesthetic: psychedelic gig-poster. Signature element: the ticket-stub signup
+  form. The crowd silhouette SVG closes the hero. Keep boldness concentrated
+  there; everything else stays quiet.
+- Quality floor: mobile-first (QR arrivals are phones), visible keyboard focus,
+  `prefers-reduced-motion` respected.
+
+## Voice & copy rules
+- Warm, upbeat, playful, gratitude-forward, small-shop personal. "Hooray!",
+  "our little shop", sign-off "The Altheastix Team", Seattle identity.
+- Musician quotes: verified originals only. Spanish-language artists quoted in
+  original Spanish + English translation.
+- Marquee stat claims (units shipped, feedback %) must be sanity-checked against
+  the live eBay storefront before any copy change, and rounded DOWN, never up.
+  These are public claims about the business — understating is free, overstating
+  is not.
+- HARD RULES (eBay policy): no discount language tied to buying off eBay, no
+  price comparisons vs eBay, no "contact us to order direct" copy. The page
+  invites newsletter signup and links to the eBay store. Nothing else until the
+  Stripe Bestsellers phase is explicitly launched.
+
+## Live TODOs
+- Signup form `action` is the placeholder `FORM_ACTION_URL` — replace with the
+  EmailOctopus embedded-form action URL + field name once the list exists.
+- Bestsellers/Stripe section: not built. When added, "setlist" card hrefs move
+  from eBay links to Stripe Payment Links (bundles first).
+
+## Workflow
+- Preview locally by opening index.html (no server needed).
+- Commit style: small, imperative subject lines.
+- Never push without showing Javier a summary of what changed on the page.
