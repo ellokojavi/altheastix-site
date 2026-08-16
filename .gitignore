@@ -1,1 +1,5 @@
 .DS_Store
+
+# Local, machine-specific permission grants — not shared.
+# .claude/agents/ IS tracked on purpose.
+.claude/settings.local.json
