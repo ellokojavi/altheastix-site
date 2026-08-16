@@ -47,4 +47,9 @@ repo — never copy customer data, sales figures, or CRM material here.
 ## Workflow
 - Preview locally by opening index.html (no server needed).
 - Commit style: small, imperative subject lines.
-- Never push without showing Javier a summary of what changed on the page.
+- Show and push: run routine git operations (commit, pull, rebase, push)
+  directly rather than handing Javier commands to paste. When a push changes
+  the page, show him a summary of what changed and push in the same turn — the
+  summary is a record, not a request for approval. Still confirm first for
+  irreversible or outward-facing actions (force-push, history rewrite, sending
+  a real newsletter), and leave anything needing his login to him.
