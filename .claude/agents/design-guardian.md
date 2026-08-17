@@ -14,15 +14,19 @@ All colors are CSS variables in `:root` in `index.html`. Never accept a new
 hardcoded color anywhere else in the file.
 
 Brand tokens (defined in CLAUDE.md — these are canonical, do not "improve" them):
-`--stage` #1B1226 · `--stage-2` #2A1B3D · `--poster` #FFF3DC · `--magenta`
-#F23D8A · `--tangerine` #FF6B2C · `--gold` #FFC53D · `--violet` #8C5BD9 ·
-`--ink` #17101F
+`--stage` #121217 · `--stage-2` #1B1B22 · `--bone` #E9E3D5 · `--oxblood`
+#8E2233 · `--brass` #C9A227 · `--rust` #C25A2B · `--ink` #050506
 
-Support tokens (added later, same rules apply):
-`--haze` #CDBFE0 (subheads on dark) · `--haze-2` #B9A9D4 (card body on dark) ·
-`--ink-soft` #4A3D5C (body on poster cream) · `--ink-faint` #7A6C90 (fine print)
+Support tokens (same rules apply):
+`--smoke` #9A93A6 (subheads on dark) · `--smoke-2` #8E8899 (card body on dark) ·
+`--ink-soft` #4A4550 (body on bone) · `--ink-faint` #5F5A67 (fine print)
 
-Type: `--display` Shrikhand, `--body` Space Grotesk, both from Google Fonts.
+Type: `--display` Alfa Slab One, `--body` Space Grotesk, both from Google Fonts.
+
+The palette changed on 2026-08-17 from psychedelic (magenta/tangerine/gold on
+purple-black) to "Backstage" (dark rock-poster). Any surviving reference to
+`--magenta`, `--tangerine`, `--gold`, `--poster`, `--haze` or `--violet` is a
+finding — those tokens no longer exist.
 
 ## What to check
 
