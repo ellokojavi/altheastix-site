@@ -8,59 +8,63 @@
 <link rel="icon" href="assets/AltheastixLogo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --stage:#1B1226;        /* deep stage purple-black */
-  --stage-2:#2A1B3D;      /* lighter stage wash */
-  --poster:#FFF3DC;       /* poster cream */
-  --magenta:#F23D8A;      /* hot poster ink */
-  --tangerine:#FF6B2C;    /* electric orange */
-  --gold:#FFC53D;         /* marquee gold */
-  --violet:#8C5BD9;       /* haze violet */
-  --ink:#17101F;          /* near-black ink */
-  --haze:#CDBFE0;         /* lavender-grey, subheads on dark */
-  --haze-2:#B9A9D4;       /* deeper lavender, card body on dark */
-  --ink-soft:#4A3D5C;     /* body text on poster cream */
-  --ink-faint:#7A6C90;    /* fine print & legal */
-  --display:'Shrikhand', cursive;
+  --stage:#121217;        /* near-black room — kept a few steps above --ink so
+                             the crowd silhouette still reads against it */
+  --stage-2:#1B1B22;      /* raised panel */
+  --bone:#E9E3D5;         /* aged paper / laminate card */
+  --oxblood:#8E2233;      /* deep red, primary action */
+  --brass:#C9A227;        /* aged gold, marquee & accents */
+  --rust:#C25A2B;         /* warm secondary */
+  --smoke:#9A93A6;        /* subheads on dark */
+  --smoke-2:#8E8899;      /* deeper muted on dark */
+  --ink:#050506;          /* true black, borders */
+  --ink-soft:#4A4550;     /* body text on bone */
+  --ink-faint:#5F5A67;    /* fine print on bone */
+  --display:'Alfa Slab One', Georgia, serif;
   --body:'Space Grotesk', system-ui, sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);background:var(--stage);color:var(--poster);line-height:1.6;overflow-x:hidden}
+body{font-family:var(--body);background:var(--stage);color:var(--bone);line-height:1.6;overflow-x:hidden}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:4px}
 
 /* ── Marquee strip ─────────────────────────── */
-.marquee{background:var(--gold);color:var(--ink);overflow:hidden;white-space:nowrap;border-bottom:3px solid var(--ink)}
+.marquee{background:var(--brass);color:var(--ink);overflow:hidden;white-space:nowrap;border-bottom:3px solid var(--ink)}
 .marquee-track{display:inline-block;padding:.45rem 0;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;animation:scroll 28s linear infinite}
 .marquee-track span{margin:0 1.2rem}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── Hero: the poster ──────────────────────── */
+/* Warm, low-alpha washes: stage lighting spill on a dark room, not a
+   psychedelic gradient. Kept subtle so the wordmark stays the focal point. */
 .hero{position:relative;text-align:center;padding:4.5rem 1.25rem 0;background:
-  radial-gradient(ellipse 90% 55% at 50% -5%, rgba(140,91,217,.45), transparent 60%),
-  radial-gradient(ellipse 45% 35% at 15% 25%, rgba(242,61,138,.22), transparent 70%),
-  radial-gradient(ellipse 45% 35% at 85% 25%, rgba(255,107,44,.22), transparent 70%),
+  radial-gradient(ellipse 90% 55% at 50% -5%, rgba(201,162,39,.16), transparent 62%),
+  radial-gradient(ellipse 45% 35% at 14% 28%, rgba(142,34,51,.24), transparent 72%),
+  radial-gradient(ellipse 45% 35% at 86% 28%, rgba(194,90,43,.16), transparent 72%),
   var(--stage);}
-.hero::before{content:"";position:absolute;inset:0;background:url('assets/AltheastixLogo.png') repeat;background-size:220px;opacity:.05;pointer-events:none}
+.hero::before{content:"";position:absolute;inset:0;background:url('assets/AltheastixLogo.png') repeat;background-size:220px;opacity:.045;pointer-events:none}
 .hero > *{position:relative}
-.est{display:inline-block;font-size:.78rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:.3rem 1rem;margin-bottom:1.4rem}
-.wordmark{font-family:var(--display);font-size:clamp(3rem, 11vw, 6.5rem);line-height:1;letter-spacing:.01em;
-  background:linear-gradient(100deg, var(--gold) 15%, var(--tangerine) 40%, var(--magenta) 75%);
+.est{display:inline-block;font-size:.78rem;letter-spacing:.35em;text-transform:uppercase;color:var(--brass);border:1px solid rgba(201,162,39,.55);border-radius:999px;padding:.3rem 1rem;margin-bottom:1.4rem}
+.wordmark{font-family:var(--display);font-size:clamp(2.7rem, 10vw, 6rem);line-height:1;letter-spacing:.005em;
+  background:linear-gradient(100deg, #F0E4C0 4%, var(--brass) 34%, var(--rust) 78%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 4px 0 rgba(23,16,31,.9)) drop-shadow(0 7px 0 rgba(242,61,138,.35));
-  transform:rotate(-1.5deg)}
-.tagline{margin:1.3rem auto 0;max-width:34ch;font-size:clamp(1.05rem,2.6vw,1.3rem);font-weight:500;color:var(--poster)}
-.tagline em{font-style:normal;color:var(--gold)}
+  filter:drop-shadow(0 4px 0 rgba(5,5,6,.95)) drop-shadow(0 7px 0 rgba(142,34,51,.5));
+  transform:rotate(-1deg)}
+.tagline{margin:1.4rem auto 0;max-width:34ch;font-size:clamp(1.05rem,2.6vw,1.3rem);font-weight:500;color:var(--bone)}
+.tagline em{font-style:normal;color:var(--brass)}
 .hero-ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin:2rem 0 0}
-.btn{display:inline-block;font-weight:700;text-decoration:none;padding:.85rem 1.7rem;border-radius:14px;font-size:1rem;letter-spacing:.02em;transition:transform .15s ease, box-shadow .15s ease;border:3px solid var(--ink)}
+.btn{display:inline-block;font-weight:700;text-decoration:none;padding:.85rem 1.7rem;border-radius:12px;font-size:1rem;letter-spacing:.02em;transition:transform .15s ease, box-shadow .15s ease;border:3px solid var(--ink)}
 .btn:hover{transform:translate(-2px,-3px)}
-.btn-primary{background:var(--magenta);color:#fff;box-shadow:5px 6px 0 var(--ink)}
-.btn-primary:hover{box-shadow:8px 9px 0 var(--ink)}
-.btn-ghost{background:transparent;color:var(--poster);border-color:var(--poster);box-shadow:5px 6px 0 rgba(255,243,220,.25)}
-.btn-ghost:hover{box-shadow:8px 9px 0 rgba(255,243,220,.35)}
+/* Offset shadow in brass, not ink — an ink shadow is invisible against a
+   near-black page, which would flatten the poster look entirely. */
+.btn-primary{background:var(--oxblood);color:var(--bone);box-shadow:5px 6px 0 var(--brass)}
+.btn-primary:hover{box-shadow:8px 9px 0 var(--brass)}
+.btn-ghost{background:transparent;color:var(--bone);border-color:var(--bone);box-shadow:5px 6px 0 rgba(233,227,213,.22)}
+.btn-ghost:hover{box-shadow:8px 9px 0 rgba(233,227,213,.34)}
 
 /* crowd silhouette */
 /* Crowd height is capped: the SVG is preserveAspectRatio="none", so with
@@ -71,14 +75,17 @@ a{color:inherit}
 
 /* ── Ticket signup ─────────────────────────── */
 .show{background:var(--ink);padding:2.6rem 1.25rem 4rem;position:relative}
-.show h2{font-family:var(--display);text-align:center;font-size:clamp(1.7rem,5vw,2.6rem);color:var(--gold);transform:rotate(-1deg);margin-bottom:.6rem}
-.show .sub{text-align:center;max-width:46ch;margin:0 auto 2rem;color:var(--haze)}
-.ticket{max-width:640px;margin:0 auto;background:var(--poster);color:var(--ink);border-radius:18px;display:flex;transform:rotate(-1.2deg);box-shadow:0 18px 40px rgba(0,0,0,.45), 0 0 0 3px var(--ink);position:relative}
-.ticket:hover{transform:rotate(-.4deg)}
-.ticket{transition:transform .25s ease}
-.stub{writing-mode:vertical-rl;text-orientation:mixed;display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--magenta);color:#fff;font-weight:700;letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;padding:1rem .8rem;border-radius:18px 0 0 18px;border-right:3px dashed rgba(23,16,31,.55)}
-.ticket-main{flex:1;padding:1.7rem 1.6rem 1.9rem}
-.ticket-main .tk-label{font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--magenta)}
+.show h2{font-family:var(--display);text-align:center;font-size:clamp(1.6rem,4.6vw,2.4rem);color:var(--brass);transform:rotate(-1deg);margin-bottom:.6rem}
+.show .sub{text-align:center;max-width:46ch;margin:0 auto 2rem;color:var(--smoke)}
+/* The laminate: an all-access pass, bone card with an oxblood edge stripe
+   and a punched lanyard slot. Signature element — see CLAUDE.md. */
+.ticket{max-width:640px;margin:0 auto;background:var(--bone);color:var(--ink);border-radius:14px;display:flex;transform:rotate(-1deg);box-shadow:0 20px 44px rgba(0,0,0,.6), 0 0 0 3px var(--ink);position:relative;transition:transform .25s ease}
+.ticket:hover{transform:rotate(-.3deg)}
+.stub{writing-mode:vertical-rl;text-orientation:mixed;display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--oxblood);color:var(--bone);font-weight:700;letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;padding:1rem .8rem;border-radius:11px 0 0 11px;border-right:3px solid var(--ink)}
+.ticket-main{flex:1;padding:2.5rem 1.6rem 1.9rem}
+.ticket-main .tk-label{font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--oxblood)}
+/* Punched lanyard slot at the top of the card. */
+.lanyard{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:66px;height:13px;border-radius:999px;background:var(--ink);box-shadow:inset 0 2px 3px rgba(0,0,0,.85);pointer-events:none}
 .ticket-main h3{font-family:var(--display);font-size:clamp(1.3rem,4vw,1.8rem);line-height:1.15;margin:.35rem 0 .5rem}
 .ticket-main p{font-size:.95rem;margin-bottom:1.2rem;color:var(--ink-soft)}
 /* EmailOctopus embed slot. min-height reserves the space the script fills,
@@ -88,46 +95,43 @@ a{color:inherit}
 .tk-embed{min-height:104px}
 .tk-embed form{margin:0}
 .tk-embed input[type=email]{font-family:var(--body);font-size:1rem;padding:.8rem 1rem;border:3px solid var(--ink);border-radius:12px;background:#fff}
-.tk-embed button,.tk-embed input[type=submit]{font-family:var(--body);font-weight:700;font-size:1rem;background:var(--tangerine);color:var(--ink);border:3px solid var(--ink);border-radius:12px;padding:.8rem 1.4rem;cursor:pointer;box-shadow:4px 5px 0 var(--ink);transition:transform .15s ease, box-shadow .15s ease}
+.tk-embed button,.tk-embed input[type=submit]{font-family:var(--body);font-weight:700;font-size:1rem;background:var(--rust);color:var(--ink);border:3px solid var(--ink);border-radius:12px;padding:.8rem 1.4rem;cursor:pointer;box-shadow:4px 5px 0 var(--ink);transition:transform .15s ease, box-shadow .15s ease}
 .tk-embed button:hover,.tk-embed input[type=submit]:hover{transform:translate(-2px,-2px);box-shadow:6px 7px 0 var(--ink)}
 /* Success/error states. EmailOctopus ships these unstyled, which reads as a
    dead end after the ticket build-up — dress them to match. */
 /* EmailOctopus injects its stylesheet at runtime, so it wins on equal
    specificity — these need !important to land. */
-.ticket-main .tk-embed p.emailoctopus-success-message{font-family:var(--display);font-size:clamp(1.15rem,3.4vw,1.5rem);line-height:1.25;color:var(--magenta)!important;text-align:left!important;margin:.1rem 0 .3rem!important;transform:rotate(-1deg)}
-.ticket-main .tk-embed p.emailoctopus-error-message{font-family:var(--body);font-weight:700;font-size:.95rem;color:var(--magenta)!important;text-align:left!important}
+.ticket-main .tk-embed p.emailoctopus-success-message{font-family:var(--display);font-size:clamp(1.15rem,3.4vw,1.5rem);line-height:1.25;color:var(--oxblood)!important;text-align:left!important;margin:.1rem 0 .3rem!important;transform:rotate(-1deg)}
+.ticket-main .tk-embed p.emailoctopus-error-message{font-family:var(--body);font-weight:700;font-size:.95rem;color:var(--oxblood)!important;text-align:left!important}
 /* Keep EmailOctopus attribution (free-tier requirement) but stop it sitting
    in the middle of the card. */
 .ticket-main .tk-embed .mastfoot{text-align:left!important;margin-top:.5rem!important;opacity:.55;font-size:.8rem}
 .tk-noscript{font-size:.9rem;color:var(--ink-soft)}
 .tk-fine{font-size:.78rem;color:var(--ink-faint);margin-top:.9rem}
-.perfs{position:absolute;top:-9px;left:0;right:0;display:flex;justify-content:space-evenly;pointer-events:none}
-.perfs i{width:14px;height:14px;background:var(--ink);border-radius:50%}
-.perfs.bottom{top:auto;bottom:-9px}
 
 /* ── Hits / shop ───────────────────────────── */
 .hits{background:var(--stage-2);padding:4.5rem 1.25rem;text-align:center;position:relative}
 .hits::before{content:"";position:absolute;inset:0;background:url('assets/AltheastixLogo.png') repeat;background-size:300px;opacity:.04;pointer-events:none}
 .hits > *{position:relative}
-.hits h2{font-family:var(--display);font-size:clamp(1.7rem,5vw,2.6rem);color:var(--tangerine);transform:rotate(1deg)}
-.hits .sub{max-width:52ch;margin:.7rem auto 2.4rem;color:var(--haze)}
+.hits h2{font-family:var(--display);font-size:clamp(1.55rem,4.4vw,2.3rem);color:var(--rust);transform:rotate(1deg)}
+.hits .sub{max-width:52ch;margin:.7rem auto 2.4rem;color:var(--smoke)}
 .setlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem;max-width:900px;margin:0 auto 2.4rem;text-align:left}
-.song{background:rgba(23,16,31,.55);border:2px solid rgba(255,243,220,.18);border-radius:14px;padding:1.2rem 1.3rem;transition:transform .15s ease, border-color .15s ease}
-.song:hover{transform:translateY(-4px);border-color:var(--gold)}
-.song .n{font-weight:700;color:var(--gold);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
-.song h3{font-size:1.08rem;margin:.3rem 0 .25rem;color:var(--poster)}
-.song p{font-size:.88rem;color:var(--haze-2)}
-.song .go{display:inline-block;margin-top:.7rem;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tangerine)}
-.song:hover .go{color:var(--gold)}
+.song{background:rgba(233,227,213,.045);border:2px solid rgba(233,227,213,.14);border-radius:14px;padding:1.2rem 1.3rem;transition:transform .15s ease, border-color .15s ease}
+.song:hover{transform:translateY(-4px);border-color:var(--brass)}
+.song .n{font-weight:700;color:var(--brass);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+.song h3{font-size:1.08rem;margin:.3rem 0 .25rem;color:var(--bone)}
+.song p{font-size:.88rem;color:var(--smoke-2)}
+.song .go{display:inline-block;margin-top:.7rem;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brass)}
+.song:hover .go{color:var(--bone)}
 
 /* ── Footer ────────────────────────────────── */
 footer{background:var(--ink);padding:3.5rem 1.25rem 2.5rem;text-align:center}
-.quote{max-width:56ch;margin:0 auto 2rem;font-size:1.05rem;color:var(--haze);font-style:italic}
-.quote b{display:block;margin-top:.5rem;font-style:normal;color:var(--gold);font-size:.85rem;letter-spacing:.15em;text-transform:uppercase}
+.quote{max-width:56ch;margin:0 auto 2rem;font-size:1.05rem;color:var(--smoke);font-style:italic}
+.quote b{display:block;margin-top:.5rem;font-style:normal;color:var(--brass);font-size:.85rem;letter-spacing:.15em;text-transform:uppercase}
 .foot-links{display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;font-size:.92rem;margin-bottom:1.6rem}
-.foot-links a{color:var(--poster);text-decoration:none;border-bottom:2px solid var(--magenta)}
-.foot-links a:hover{color:var(--gold)}
-.legal{font-size:.78rem;color:var(--ink-faint)}
+.foot-links a{color:var(--bone);text-decoration:none;border-bottom:2px solid var(--oxblood)}
+.foot-links a:hover{color:var(--brass)}
+.legal{font-size:.78rem;color:var(--smoke-2)}
 
 @media (max-width:560px){
   .stub{font-size:.62rem;letter-spacing:.2em}
@@ -174,10 +178,10 @@ footer{background:var(--ink);padding:3.5rem 1.25rem 2.5rem;text-align:center}
   <p class="sub">New designs, restocks &amp; the occasional surprise — straight from the shop, about once a month. Never spam, never a cover charge.</p>
 
   <div class="ticket">
-    <div class="perfs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <div class="stub" aria-hidden="true">Admit One</div>
+    <div class="lanyard" aria-hidden="true"></div>
+    <div class="stub" aria-hidden="true">All Access</div>
     <div class="ticket-main">
-      <span class="tk-label">The Altheastix Family ★ General Admission</span>
+      <span class="tk-label">The Altheastix Family ★ All Access</span>
       <h3>Get on the list</h3>
       <p>First dibs on new drops, restock alerts on the classics, and a little extra love in your inbox.</p>
       <!-- EmailOctopus inline embed. The ticket chrome around it is ours;
