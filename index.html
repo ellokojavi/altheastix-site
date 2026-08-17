@@ -63,13 +63,16 @@ a{color:inherit}
 .btn-ghost:hover{box-shadow:8px 9px 0 rgba(255,243,220,.35)}
 
 /* crowd silhouette */
-.crowd{display:block;width:100%;margin-top:2.8rem}
-.crowd svg{display:block;width:100%;height:auto}
+/* Crowd height is capped: the SVG is preserveAspectRatio="none", so with
+   height:auto it grows with viewport width and adds dead space on wide
+   screens (~264px at 2000px). Clamp keeps it a band, not a gap. */
+.crowd{display:block;width:100%;margin-top:1.4rem}
+.crowd svg{display:block;width:100%;height:clamp(48px,6vw,110px)}
 
 /* ── Ticket signup ─────────────────────────── */
-.show{background:var(--ink);padding:4.5rem 1.25rem 5rem;position:relative}
+.show{background:var(--ink);padding:2.6rem 1.25rem 4rem;position:relative}
 .show h2{font-family:var(--display);text-align:center;font-size:clamp(1.7rem,5vw,2.6rem);color:var(--gold);transform:rotate(-1deg);margin-bottom:.6rem}
-.show .sub{text-align:center;max-width:46ch;margin:0 auto 2.6rem;color:var(--haze)}
+.show .sub{text-align:center;max-width:46ch;margin:0 auto 2rem;color:var(--haze)}
 .ticket{max-width:640px;margin:0 auto;background:var(--poster);color:var(--ink);border-radius:18px;display:flex;transform:rotate(-1.2deg);box-shadow:0 18px 40px rgba(0,0,0,.45), 0 0 0 3px var(--ink);position:relative}
 .ticket:hover{transform:rotate(-.4deg)}
 .ticket{transition:transform .25s ease}
@@ -157,7 +160,10 @@ footer{background:var(--ink);padding:3.5rem 1.25rem 2.5rem;text-align:center}
 
   <!-- crowd silhouette: hands in the air -->
   <div class="crowd" aria-hidden="true">
-    <svg viewBox="0 0 1440 190" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- viewBox is cropped to "0 74 …": the path's highest peak is at y≈78, so
+         the top 74 units were empty and only added height. Cropping instead of
+         scaling keeps the silhouette's proportions at a shorter height. -->
+    <svg viewBox="0 74 1440 116" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path fill="var(--ink)" d="M0,190 L0,150 C10,150 14,118 22,118 C30,118 32,96 40,96 C46,96 48,112 54,118 C62,124 66,150 80,150 C92,150 96,120 108,118 C112,84 124,84 128,102 C132,84 144,88 146,110 C158,114 160,150 172,148 C184,146 188,118 200,118 C206,92 218,92 222,112 C234,116 236,148 250,148 C262,148 268,124 278,120 C280,94 294,94 298,114 C306,80 318,84 320,106 C330,110 332,146 346,146 C358,146 362,118 374,116 C378,88 390,88 394,108 C404,112 406,144 420,146 C434,148 438,116 450,116 C454,92 466,92 470,110 C480,116 482,146 496,146 C508,146 514,120 524,118 C528,82 542,86 544,106 C552,88 562,92 564,112 C574,118 576,148 590,148 C602,148 606,118 618,116 C622,92 634,92 638,112 C648,116 650,146 664,146 C676,146 682,122 692,118 C694,90 708,90 712,110 C720,78 732,82 734,104 C744,110 746,144 760,144 C772,144 776,116 788,114 C792,88 804,88 808,108 C818,112 820,142 834,144 C848,146 852,114 864,114 C868,90 880,90 884,108 C894,114 896,144 910,144 C922,144 928,120 938,116 C942,84 956,88 958,108 C966,90 976,94 978,114 C988,120 990,148 1004,148 C1016,148 1020,118 1032,116 C1036,92 1048,92 1052,112 C1062,116 1064,146 1078,146 C1090,146 1096,122 1106,118 C1108,90 1122,90 1126,110 C1134,80 1146,84 1148,106 C1158,112 1160,146 1174,146 C1186,146 1190,116 1202,114 C1206,90 1218,90 1222,108 C1232,114 1234,144 1248,144 C1260,144 1266,120 1276,116 C1280,86 1294,90 1296,110 C1304,92 1314,96 1316,116 C1326,122 1328,150 1342,150 C1356,150 1360,122 1372,120 C1376,96 1388,96 1392,116 C1400,122 1402,152 1416,152 C1424,152 1428,136 1440,134 L1440,190 Z"/>
     </svg>
   </div>
