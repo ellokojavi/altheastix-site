@@ -87,6 +87,15 @@ a{color:inherit}
 .tk-embed input[type=email]{font-family:var(--body);font-size:1rem;padding:.8rem 1rem;border:3px solid var(--ink);border-radius:12px;background:#fff}
 .tk-embed button,.tk-embed input[type=submit]{font-family:var(--body);font-weight:700;font-size:1rem;background:var(--tangerine);color:var(--ink);border:3px solid var(--ink);border-radius:12px;padding:.8rem 1.4rem;cursor:pointer;box-shadow:4px 5px 0 var(--ink);transition:transform .15s ease, box-shadow .15s ease}
 .tk-embed button:hover,.tk-embed input[type=submit]:hover{transform:translate(-2px,-2px);box-shadow:6px 7px 0 var(--ink)}
+/* Success/error states. EmailOctopus ships these unstyled, which reads as a
+   dead end after the ticket build-up — dress them to match. */
+/* EmailOctopus injects its stylesheet at runtime, so it wins on equal
+   specificity — these need !important to land. */
+.ticket-main .tk-embed p.emailoctopus-success-message{font-family:var(--display);font-size:clamp(1.15rem,3.4vw,1.5rem);line-height:1.25;color:var(--magenta)!important;text-align:left!important;margin:.1rem 0 .3rem!important;transform:rotate(-1deg)}
+.ticket-main .tk-embed p.emailoctopus-error-message{font-family:var(--body);font-weight:700;font-size:.95rem;color:var(--magenta)!important;text-align:left!important}
+/* Keep EmailOctopus attribution (free-tier requirement) but stop it sitting
+   in the middle of the card. */
+.ticket-main .tk-embed .mastfoot{text-align:left!important;margin-top:.5rem!important;opacity:.55;font-size:.8rem}
 .tk-noscript{font-size:.9rem;color:var(--ink-soft)}
 .tk-fine{font-size:.78rem;color:var(--ink-faint);margin-top:.9rem}
 .perfs{position:absolute;top:-9px;left:0;right:0;display:flex;justify-content:space-evenly;pointer-events:none}
