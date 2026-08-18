@@ -49,6 +49,11 @@ a{color:inherit}
 .hero{text-align:center;padding:7rem 1.5rem 0;background:var(--bg)}
 .est{display:inline-block;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
   color:var(--faint);margin-bottom:2.2rem}
+.bolt{width:1em;height:1em;display:inline-block;vertical-align:-.13em;fill:currentColor}
+/* Hero lockup: the mark sits above the wordmark, in bone — amber and flame
+   both already mean something, so the brand mark stays neutral. */
+.bolt-mark{display:block;margin:0 auto 1.1rem;width:clamp(1.6rem,3.4vw,2.3rem);
+  height:clamp(1.6rem,3.4vw,2.3rem);fill:var(--fg)}
 .wordmark{font-family:var(--display);font-size:clamp(3.6rem,13vw,7.4rem);font-weight:800;
   line-height:.94;letter-spacing:0em;color:var(--fg)}
 .tagline{margin:1.7rem auto 0;max-width:32ch;font-size:clamp(1.05rem,2.4vw,1.2rem);
@@ -162,15 +167,25 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
 </head>
 <body>
 
+<!-- Bolt mark. Inline SVG rather than the ⚡ emoji: the emoji renders in full
+     colour on most platforms, which breaks the monochrome palette. This
+     inherits currentColor, so it is always the colour of the text around it. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bolt" viewBox="0 0 24 24">
+    <path d="M14.6 2 L5 13.6 h5.2 L9.4 22 L19 10.4 h-5.2 Z"/>
+  </symbol>
+</svg>
+
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>★ Free fast shipping, always</span><span>★ Hand-packed in Seattle</span><span>★ 50,000+ stickers shipped</span><span>★ 99.3% positive feedback</span><span>★ Premium vinyl, built for water bottles &amp; bumpers</span>
-    <span>★ Free fast shipping, always</span><span>★ Hand-packed in Seattle</span><span>★ 50,000+ stickers shipped</span><span>★ 99.3% positive feedback</span><span>★ Premium vinyl, built for water bottles &amp; bumpers</span>
+    <span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> Free fast shipping, always</span><span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> Hand-packed in Seattle</span><span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> 50,000+ stickers shipped</span><span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> 99.3% positive feedback</span><span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> Premium vinyl, built for water bottles &amp; bumpers</span>
+    <span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> Free fast shipping, always</span><span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> Hand-packed in Seattle</span><span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> 50,000+ stickers shipped</span><span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> 99.3% positive feedback</span><span><svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> Premium vinyl, built for water bottles &amp; bumpers</span>
   </div>
 </div>
 
 <header class="hero">
-  <span class="est">Seattle, WA ★ est. with love</span>
+  <span class="est">Seattle, WA <svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> est. with love</span>
+  <svg class="bolt-mark" aria-hidden="true"><use href="#bolt"/></svg>
   <h1 class="wordmark">Altheastix</h1>
   <p class="tagline">Premium vinyl stickers for people whose water bottle is a <em>setlist</em>. Hand-packed, hand-addressed, shipped free.</p>
   <div class="hero-ctas">
@@ -197,7 +212,7 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
     <div class="lanyard" aria-hidden="true"></div>
     <div class="stub" aria-hidden="true">All Access</div>
     <div class="ticket-main">
-      <span class="tk-label">The Altheastix Family ★ All Access</span>
+      <span class="tk-label">The Altheastix Family <svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> All Access</span>
       <h3>Get on the list</h3>
       <p>First dibs on new drops, restock alerts on the classics, and a little extra love in your inbox.</p>
       <!-- EmailOctopus inline embed. The ticket chrome around it is ours;
@@ -247,13 +262,14 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
 <section class="hits">
   <h2>Tonight&rsquo;s setlist</h2>
   <p class="sub">Four ways in. Every order ships free, tucked safe on a backing card, in an envelope addressed by an actual human hand.</p>
-  <!-- Search terms confirmed by Javier 2026-08-16. Each card is a DISTINCT
+  <!-- Search terms confirmed 2026-08-18 (deadhead 83, steal your face, grateful
+       jerry 151, fink hot rod 14). Headings match the search term deliberately. Each card is a DISTINCT
        in-store search; if you change a term, check it returns real results
        first — a card landing on an empty page is worse than no card. -->
   <div class="setlist">
     <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=deadhead" target="_blank" rel="noopener">
       <span class="n">01 · The classics</span>
-      <h3>Grateful Dead</h3>
+      <h3>Deadhead</h3>
       <p>Bears, terrapins, roses &amp; friends — the heart of the shop.</p>
       <span class="go">Take me there →</span>
     </a>
@@ -265,13 +281,13 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
     </a>
     <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=grateful+jerry" target="_blank" rel="noopener">
       <span class="n">03 · Deep cuts</span>
-      <h3>Jerry Garcia</h3>
+      <h3>Grateful Jerry</h3>
       <p>The man himself — solo years, JGB, and every era in between.</p>
       <span class="go">Take me there →</span>
     </a>
     <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=fink+hot+rod" target="_blank" rel="noopener">
       <span class="n">04 · Loud &amp; fast</span>
-      <h3>Rat Fink</h3>
+      <h3>Fink Hot Rod</h3>
       <p>Big Daddy Roth&rsquo;s monsters, flames &amp; chrome-age mischief.</p>
       <span class="go">Take me there →</span>
     </a>
@@ -286,7 +302,7 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
     <a href="mailto:sales@altheastix.com">sales@altheastix.com</a>
     <a href="#join">Join the family</a>
   </nav>
-  <p class="legal">© 2026 Altheastix ★ Hand-packed with love &amp; good music in Seattle, WA</p>
+  <p class="legal">© 2026 Altheastix <svg class="bolt" aria-hidden="true"><use href="#bolt"/></svg> Hand-packed with love &amp; good music in Seattle, WA</p>
 </footer>
 
 </body>
