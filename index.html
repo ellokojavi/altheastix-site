@@ -15,9 +15,9 @@
                              the crowd silhouette still reads against it */
   --stage-2:#1B1B22;      /* raised panel */
   --bone:#E9E3D5;         /* aged paper / laminate card */
-  --oxblood:#8E2233;      /* deep red, primary action */
-  --brass:#C9A227;        /* aged gold, marquee & accents */
-  --rust:#C25A2B;         /* warm secondary */
+  --oxblood:#7C3239;      /* deep red, primary action */
+  --brass:#B29B62;        /* aged gold, marquee & accents */
+  --rust:#A9714E;         /* warm secondary */
   --smoke:#9A93A6;        /* subheads on dark */
   --smoke-2:#8E8899;      /* deeper muted on dark */
   --ink:#050506;          /* true black, borders */
@@ -42,17 +42,16 @@ a{color:inherit}
 /* Warm, low-alpha washes: stage lighting spill on a dark room, not a
    psychedelic gradient. Kept subtle so the wordmark stays the focal point. */
 .hero{position:relative;text-align:center;padding:4.5rem 1.25rem 0;background:
-  radial-gradient(ellipse 90% 55% at 50% -5%, rgba(201,162,39,.16), transparent 62%),
-  radial-gradient(ellipse 45% 35% at 14% 28%, rgba(142,34,51,.24), transparent 72%),
-  radial-gradient(ellipse 45% 35% at 86% 28%, rgba(194,90,43,.16), transparent 72%),
+  radial-gradient(ellipse 90% 55% at 50% -5%, rgba(178,155,98,.14), transparent 62%),
+  radial-gradient(ellipse 45% 35% at 14% 28%, rgba(124,50,57,.22), transparent 72%),
+  radial-gradient(ellipse 45% 35% at 86% 28%, rgba(169,113,78,.14), transparent 72%),
   var(--stage);}
 .hero::before{content:"";position:absolute;inset:0;background:url('assets/AltheastixLogo.png') repeat;background-size:220px;opacity:.045;pointer-events:none}
 .hero > *{position:relative}
-.est{display:inline-block;font-size:.78rem;letter-spacing:.35em;text-transform:uppercase;color:var(--brass);border:1px solid rgba(201,162,39,.55);border-radius:999px;padding:.3rem 1rem;margin-bottom:1.4rem}
+.est{display:inline-block;font-size:.78rem;letter-spacing:.35em;text-transform:uppercase;color:var(--brass);border:1px solid rgba(178,155,98,.5);border-radius:999px;padding:.3rem 1rem;margin-bottom:1.4rem}
 .wordmark{font-family:var(--display);font-size:clamp(2.7rem, 10vw, 6rem);line-height:1;letter-spacing:.005em;
-  background:linear-gradient(100deg, #F0E4C0 4%, var(--brass) 34%, var(--rust) 78%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 4px 0 rgba(5,5,6,.95)) drop-shadow(0 7px 0 rgba(142,34,51,.5));
+  color:var(--bone);
+  filter:drop-shadow(0 4px 0 rgba(5,5,6,.95)) drop-shadow(0 7px 0 rgba(124,50,57,.55));
   transform:rotate(-1deg)}
 .tagline{margin:1.4rem auto 0;max-width:34ch;font-size:clamp(1.05rem,2.6vw,1.3rem);font-weight:500;color:var(--bone)}
 .tagline em{font-style:normal;color:var(--brass)}

@@ -15,7 +15,7 @@ hardcoded color anywhere else in the file.
 
 Brand tokens (defined in CLAUDE.md — these are canonical, do not "improve" them):
 `--stage` #121217 · `--stage-2` #1B1B22 · `--bone` #E9E3D5 · `--oxblood`
-#8E2233 · `--brass` #C9A227 · `--rust` #C25A2B · `--ink` #050506
+#7C3239 · `--brass` #B29B62 · `--rust` #A9714E · `--ink` #050506
 
 Support tokens (same rules apply):
 `--smoke` #9A93A6 (subheads on dark) · `--smoke-2` #8E8899 (card body on dark) ·
