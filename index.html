@@ -106,6 +106,7 @@ a{color:inherit}
    in the middle of the card. */
 .ticket-main .tk-embed .mastfoot{text-align:left!important;margin-top:.5rem!important;opacity:.55;font-size:.8rem}
 .tk-noscript{font-size:.9rem;color:var(--ink-soft)}
+.tk-staging{font-size:.9rem;font-weight:700;color:var(--ink-soft);border:2px dashed var(--ink-soft);border-radius:10px;padding:.7rem .9rem;margin:0}
 .tk-fine{font-size:.78rem;color:var(--ink-faint);margin-top:.9rem}
 
 /* ── Hits / shop ───────────────────────────── */
@@ -189,14 +190,39 @@ footer{background:var(--ink);padding:3.5rem 1.25rem 2.5rem;text-align:center}
            Form 3a20966a-99a4-11f1-8c1e-d12546154605 · list 5d27f50c-99a1-11f1-8b9a-ef86de0c49a1
            This external script is a deliberate exception to the
            no-dependencies rule — see CLAUDE.md. -->
-      <div class="tk-embed">
-        <script async src="https://eomail5.com/form/3a20966a-99a4-11f1-8c1e-d12546154605.js" data-form="3a20966a-99a4-11f1-8c1e-d12546154605"></script>
+      <div class="tk-embed" data-eo-form="3a20966a-99a4-11f1-8c1e-d12546154605">
         <noscript>
           <p class="tk-noscript">Signing up needs JavaScript on. If you'd rather not,
           email <a href="mailto:sales@altheastix.com">sales@altheastix.com</a> and
           we'll add you to the list by hand.</p>
         </noscript>
       </div>
+      <!-- Load the live embed on the production host only. Staging and local
+           previews get an inert placeholder instead, so no preview can write a
+           real contact to list 5d27f50c-99a1-11f1-8b9a-ef86de0c49a1 or fire the
+           welcome automation. Host-conditional (not branch-conditional) so this
+           file stays identical on every branch — see CLAUDE.md. -->
+      <script>
+      (function(){
+        var slot=document.querySelector('.tk-embed');
+        if(!slot)return;
+        var id=slot.getAttribute('data-eo-form'),h=location.hostname;
+        if(h==='altheastix.com'||h==='www.altheastix.com'){
+          var s=document.createElement('script');
+          s.async=true;s.src='https://eomail5.com/form/'+id+'.js';
+          s.setAttribute('data-form',id);
+          slot.appendChild(s);
+        }else{
+          var n=document.createElement('meta');
+          n.name='robots';n.content='noindex,nofollow';
+          document.head.appendChild(n);
+          var p=document.createElement('p');
+          p.className='tk-staging';
+          p.textContent='Preview build — signup is switched off here so nothing reaches the live list.';
+          slot.appendChild(p);
+        }
+      })();
+      </script>
       <p class="tk-fine">One email a month-ish. Unsubscribe anytime — no hard feelings, we promise.</p>
     </div>
   </div>

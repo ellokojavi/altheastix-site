@@ -28,12 +28,45 @@ In Cloudflare DNS add (all DNS-only/grey-cloud at first, proxy later if wanted):
 
 Enable **Enforce HTTPS** once the certificate shows up (~15 min).
 
-## Wire up the signup form (one TODO in index.html)
-1. In EmailOctopus: **Lists → your list → Forms → Embedded form**.
-2. Copy the form's `action` URL and the email field's `name` attribute.
-3. In `index.html`, find the `<!-- TODO: wire to EmailOctopus -->` comment,
-   replace `FORM_ACTION_URL` and (if different) the `name="field_0"` value.
-4. Commit + push. Done.
+## Signup form
+Wired to EmailOctopus — form `3a20966a-…`, list `5d27f50c-…`. The embed script
+renders the email field and button; the ticket chrome around it is ours, and
+the field/button styling is set in the EmailOctopus dashboard to match. It
+loads on the production host only — see Staging below.
+
+## Staging / previewing designs
+Production is GitHub Pages on altheastix.com. Cloudflare Pages is wired to the
+same repo for **previews only** — it never serves the real domain, so nothing
+here can touch the production certificate.
+
+Local:
+```bash
+git checkout -b my-redesign
+python3 -m http.server 8765   # then localhost:8765
+```
+Use a server, not file:// — `/join` and `/#join` are root-relative.
+
+Cloudflare Pages (one-time, in the dashboard — labels drift between UI
+revisions, so match the shape rather than the wording):
+1. Workers & Pages → Create → Pages → Connect to Git
+2. Authorize GitHub, pick `ellokojavi/altheastix-site`
+3. Framework preset **None**, build command **empty**, output directory `/`
+4. Production branch: `main`
+
+Every non-production branch then gets `<branch>.altheastix-site.pages.dev`,
+plus a unique URL per commit.
+
+**The signup form is gated by hostname.** The EmailOctopus embed loads only on
+`altheastix.com` / `www.altheastix.com`. Any other host — localhost, any
+pages.dev preview — gets an inert placeholder and a `noindex` meta, so no
+preview can write a real contact to the live list or fire the welcome
+automation. This is deliberately host-based rather than branch-based: a
+branch-diverged index.html can merge to main and silently break signup.
+`_headers` adds `X-Robots-Tag: noindex` on Cloudflare Pages as a second layer
+(GitHub Pages ignores that file).
+
+**Always test `/join` on a preview URL** — it's the printed QR target and the
+one path that cannot break.
 
 ## Customizing
 - Colors and fonts are all CSS variables at the top of `index.html` (`:root`).

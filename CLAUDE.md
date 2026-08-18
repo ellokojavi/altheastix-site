@@ -64,15 +64,28 @@ repo — never copy customer data, sales figures, or CRM material here.
   stays ours; only the email field and button come from EmailOctopus, styled to
   match there. Worth revisiting: `https://eomail5.com/form/<id>` answers 405 to
   GET, so a direct POST may be possible — that would let the script go away.
+- Staging must never point at the production EmailOctopus form. The embed is
+  gated on hostname in index.html — it loads only on altheastix.com /
+  www.altheastix.com, and every other host gets an inert placeholder plus a
+  noindex meta. Keep that gate host-based, never branch-based: a
+  branch-diverged index.html can merge to main and silently kill signup. If
+  you ever need to exercise a real submit on staging, add a throwaway
+  EmailOctopus form + list and point the staging host at that instead.
 - Bestsellers/Stripe section: not built. When added, "setlist" card hrefs move
   from eBay links to Stripe Payment Links (bundles first).
 
 ## Workflow
-- Preview locally by opening index.html (no server needed).
+- Preview over a local server, not file:// — `python3 -m http.server 8765`,
+  then localhost:8765. Root-relative paths (`/join`, `/#join`) and the
+  hostname check on the signup embed don't behave correctly under file://.
 - Commit style: small, imperative subject lines.
+- Branch first. Design and content changes go on a feature branch and get
+  previewed (locally, or on the Cloudflare Pages branch URL) before merging
+  to main. main auto-deploys to altheastix.com — treat a push to main as a
+  release, not a save.
 - Show and push: run routine git operations (commit, pull, rebase, push)
-  directly rather than handing Javier commands to paste. When a push changes
-  the page, show him a summary of what changed and push in the same turn — the
-  summary is a record, not a request for approval. Still confirm first for
+  directly rather than handing Javier commands to paste. When a merge to main
+  changes the page, show him a summary of what changed and push in the same
+  turn — the summary is a record, not a request for approval. Still confirm first for
   irreversible or outward-facing actions (force-push, history rewrite, sending
   a real newsletter), and leave anything needing his login to him.
