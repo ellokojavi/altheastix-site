@@ -54,8 +54,9 @@ repo — never copy customer data, sales figures, or CRM material here.
   invites newsletter signup and links to the marketplaces. Nothing else until
   the Stripe Bestsellers phase is explicitly launched.
 - Two storefronts, deliberately unequal. eBay is primary (45,000+ orders); Etsy
-  is secondary (627 sales) and stays visually subordinate — a quiet text link,
-  never a button competing with the eBay CTA. Keep that hierarchy.
+  is secondary (627 sales). Both appear as buttons in the setlist section, but
+  eBay is filled and Etsy is outlined — the hierarchy lives in the treatment,
+  not in hiding one of them. Keep that asymmetry.
 
 ## Live TODOs
 - Signup is wired to EmailOctopus via their inline embed script (form
