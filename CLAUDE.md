@@ -13,9 +13,10 @@ repo — never copy customer data, sales figures, or CRM material here.
 - Deploys via GitHub Pages, custom domain altheastix.com (DNS on Cloudflare).
 
 ## Design system (do not drift)
-- Palette ("Backstage", adopted 2026-08-17, replacing the psychedelic one):
-  stage `#121217` · stage-2 `#1B1B22` · bone `#E9E3D5` · oxblood `#8E2233` ·
-  brass `#C9A227` · rust `#C25A2B` · smoke `#9A93A6` · smoke-2 `#8E8899` ·
+- Palette ("Backstage", adopted 2026-08-17; desaturated the same day at Javier's
+  request — the first pass read too vivid):
+  stage `#121217` · stage-2 `#1B1B22` · bone `#E9E3D5` · oxblood `#7C3239` ·
+  brass `#B29B62` · rust `#A9714E` · smoke `#9A93A6` · smoke-2 `#8E8899` ·
   ink `#050506` · ink-soft `#4A4550` · ink-faint `#5F5A67`. All defined as CSS
   variables in `:root` — change tokens there, never hardcode colors inline.
 - `--stage` is deliberately a few steps lighter than `--ink`: the crowd
@@ -30,6 +31,9 @@ repo — never copy customer data, sales figures, or CRM material here.
   before the 2026-08-17 redesign; the ticket/setlist/encore language stays.)
   The crowd silhouette SVG closes the hero. Keep boldness concentrated there;
   everything else stays quiet.
+- The wordmark is SOLID bone with a maroon offset shadow. It had a
+  gold-to-rust gradient in the first pass; that was the loudest element on the
+  page and was deliberately removed. Do not reintroduce a gradient fill.
 - Offset "poster" shadows on dark backgrounds must use brass, not ink — an ink
   shadow on a near-black page is invisible.
 - Quality floor: mobile-first (QR arrivals are phones), visible keyboard focus,
