@@ -3,3 +3,11 @@
 # Local, machine-specific permission grants — not shared.
 # .claude/agents/ IS tracked on purpose.
 .claude/settings.local.json
+
+# Full-resolution sticker sources (~19 MB total). Display-sized copies live in
+# assets/cards/ and are what the page loads. Keep the originals out of the
+# deploy artifact — this repo is served as-is by GitHub Pages.
+assets/Deadhead.png
+assets/Fink Hot Rod.png
+assets/Grateful Jerry.png
+assets/Steal Your Face.png
