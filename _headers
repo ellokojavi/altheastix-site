@@ -1,0 +1,5 @@
+# Cloudflare Pages only — GitHub Pages ignores this file, so altheastix.com is
+# unaffected. Every Cloudflare preview deploy is a full copy of the site; without
+# this it would compete with the real domain in search results.
+/*
+  X-Robots-Tag: noindex, nofollow
