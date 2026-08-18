@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/AltheastixLogo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Quiet Night — monochrome dark, one accent. The stickers are the colour;
@@ -20,11 +20,12 @@
   --muted:#9B98A2;        /* secondary text */
   --faint:#6E6B76;        /* labels, fine print */
   --rule:#26262C;         /* hairlines */
-  --accent:#B5555C;       /* oxblood lifted for contrast on dark */
-  --accent-hi:#C76A70;
+  --accent:#FF5A1F;       /* flame — every interactive thing, nothing else */
+  --accent-hi:#FF7438;
   --on-accent:#0E0E11;
+  --amber:#F5A623;        /* marquee strip only — informational, not clickable */
   --crowd:#1A1A1F;        /* silhouette one step off the ground */
-  --display:'Space Grotesk', system-ui, sans-serif;
+  --display:'Instrument Serif', Georgia, serif;
   --body:'Space Grotesk', system-ui, sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -36,10 +37,10 @@ a{color:inherit}
 
 /* ── Marquee ───────────────────────────────── */
 /* Stats still earn their place; they just stop shouting. */
-.marquee{background:var(--bg);border-bottom:1px solid var(--rule);overflow:hidden;white-space:nowrap}
-.marquee-track{display:inline-block;padding:.75rem 0;font-size:.66rem;font-weight:500;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--faint);
-  animation:scroll 65s linear infinite}
+.marquee{background:var(--amber);overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-block;padding:.62rem 0;font-family:var(--body);
+  font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--on-accent);animation:scroll 65s linear infinite}
 .marquee-track span{margin:0 2.1rem}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -48,8 +49,8 @@ a{color:inherit}
 .hero{text-align:center;padding:7rem 1.5rem 0;background:var(--bg)}
 .est{display:inline-block;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
   color:var(--faint);margin-bottom:2.2rem}
-.wordmark{font-family:var(--display);font-size:clamp(2.8rem,9vw,5rem);font-weight:700;
-  line-height:1;letter-spacing:-.035em;color:var(--fg)}
+.wordmark{font-family:var(--display);font-size:clamp(3.1rem,10vw,5.8rem);font-weight:400;
+  line-height:1.02;letter-spacing:-.012em;color:var(--fg)}
 .tagline{margin:1.7rem auto 0;max-width:32ch;font-size:clamp(1.05rem,2.4vw,1.2rem);
   color:var(--muted);line-height:1.6}
 .tagline em{font-style:normal;color:var(--fg)}
@@ -72,8 +73,8 @@ a{color:inherit}
 
 /* ── Signup ────────────────────────────────── */
 .show{background:var(--bg-2);border-top:1px solid var(--rule);padding:6rem 1.5rem}
-.show h2{font-family:var(--display);text-align:center;font-size:clamp(1.5rem,3.6vw,2rem);
-  font-weight:700;letter-spacing:-.025em;color:var(--fg);margin-bottom:.7rem}
+.show h2{font-family:var(--display);text-align:center;font-size:clamp(1.7rem,4vw,2.3rem);
+  font-weight:400;letter-spacing:-.025em;color:var(--fg);margin-bottom:.7rem}
 .show .sub{text-align:center;max-width:44ch;margin:0 auto 3rem;color:var(--muted);font-size:.97rem}
 /* The pass survives as a shape — edge stub, card body — minus the theatre. */
 .ticket{max-width:520px;margin:0 auto;background:var(--card);border:1px solid var(--rule);
@@ -86,7 +87,7 @@ a{color:inherit}
 .ticket-main{flex:1;padding:1.9rem 1.8rem}
 .ticket-main .tk-label{display:block;font-size:.6rem;font-weight:500;letter-spacing:.22em;
   text-transform:uppercase;color:var(--faint);margin-bottom:.75rem}
-.ticket-main h3{font-family:var(--display);font-size:1.3rem;font-weight:700;
+.ticket-main h3{font-family:var(--body);font-size:1.3rem;font-weight:700;
   letter-spacing:-.02em;line-height:1.25;margin-bottom:.5rem;color:var(--fg)}
 .ticket-main p{font-size:.94rem;color:var(--muted);margin-bottom:1.4rem}
 .tk-embed{min-height:104px}
@@ -99,7 +100,7 @@ a{color:inherit}
   transition:background-color .18s ease}
 .tk-embed button:hover,.tk-embed input[type=submit]:hover{background:var(--accent-hi)}
 /* EmailOctopus injects its stylesheet at runtime, so these need !important. */
-.ticket-main .tk-embed p.emailoctopus-success-message{font-family:var(--display);
+.ticket-main .tk-embed p.emailoctopus-success-message{font-family:var(--body);
   font-size:1.05rem!important;font-weight:700;letter-spacing:-.02em;line-height:1.4;
   color:var(--fg)!important;text-align:left!important;margin:.2rem 0 .3rem!important}
 .ticket-main .tk-embed p.emailoctopus-error-message{font-family:var(--body);font-weight:500;
@@ -113,7 +114,7 @@ a{color:inherit}
 /* ── Setlist ───────────────────────────────── */
 /* One hairline grid instead of four floating cards. */
 .hits{background:var(--bg);border-top:1px solid var(--rule);padding:6rem 1.5rem;text-align:center}
-.hits h2{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2rem);font-weight:700;
+.hits h2{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.3rem);font-weight:400;
   letter-spacing:-.025em;color:var(--fg);margin-bottom:.7rem}
 .hits .sub{max-width:48ch;margin:0 auto 3rem;color:var(--muted);font-size:.97rem}
 .setlist{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
@@ -250,7 +251,7 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
        in-store search; if you change a term, check it returns real results
        first — a card landing on an empty page is worse than no card. -->
   <div class="setlist">
-    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=grateful+dead" target="_blank" rel="noopener">
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=deadhead" target="_blank" rel="noopener">
       <span class="n">01 · The classics</span>
       <h3>Grateful Dead</h3>
       <p>Bears, terrapins, roses &amp; friends — the heart of the shop.</p>
@@ -262,13 +263,13 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
       <p>The skull and the thirteen-point bolt — the badge everyone knows.</p>
       <span class="go">Take me there →</span>
     </a>
-    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=jerry+garcia" target="_blank" rel="noopener">
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=jerry" target="_blank" rel="noopener">
       <span class="n">03 · Deep cuts</span>
       <h3>Jerry Garcia</h3>
       <p>The man himself — solo years, JGB, and every era in between.</p>
       <span class="go">Take me there →</span>
     </a>
-    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=rat+fink" target="_blank" rel="noopener">
+    <a class="song" style="text-decoration:none" href="https://www.ebay.com/str/altheastix?_nkw=fink+hot+rod" target="_blank" rel="noopener">
       <span class="n">04 · Loud &amp; fast</span>
       <h3>Rat Fink</h3>
       <p>Big Daddy Roth&rsquo;s monsters, flames &amp; chrome-age mischief.</p>
