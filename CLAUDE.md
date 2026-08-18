@@ -51,8 +51,11 @@ repo — never copy customer data, sales figures, or CRM material here.
   "99.3% positive feedback" are both accurate as published.
 - HARD RULES (eBay policy): no discount language tied to buying off eBay, no
   price comparisons vs eBay, no "contact us to order direct" copy. The page
-  invites newsletter signup and links to the eBay store. Nothing else until the
-  Stripe Bestsellers phase is explicitly launched.
+  invites newsletter signup and links to the marketplaces. Nothing else until
+  the Stripe Bestsellers phase is explicitly launched.
+- Two storefronts, deliberately unequal. eBay is primary (45,000+ orders); Etsy
+  is secondary (627 sales) and stays visually subordinate — a quiet text link,
+  never a button competing with the eBay CTA. Keep that hierarchy.
 
 ## Live TODOs
 - Signup is wired to EmailOctopus via their inline embed script (form
