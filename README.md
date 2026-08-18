@@ -46,15 +46,19 @@ python3 -m http.server 8765   # then localhost:8765
 ```
 Use a server, not file:// — `/join` and `/#join` are root-relative.
 
-Cloudflare Pages (one-time, in the dashboard — labels drift between UI
-revisions, so match the shape rather than the wording):
-1. Workers & Pages → Create → Pages → Connect to Git
-2. Authorize GitHub, pick `ellokojavi/altheastix-site`
-3. Framework preset **None**, build command **empty**, output directory `/`
-4. Production branch: `main`
+Cloudflare Pages is already set up (project `altheastix-site`). Nothing to do
+per-branch: pushing a branch triggers a build, and the preview lands at
+`<branch>.altheastix-site.pages.dev`. A branch pushed *before* the project
+existed won't have built — push any commit to it, or trigger it from
+Deployments → Create deployment.
 
-Every non-production branch then gets `<branch>.altheastix-site.pages.dev`,
-plus a unique URL per commit.
+If you ever recreate the project: the dashboard's **Create application**
+button only offers Workers on this account, and Workers Builds expects a
+`wrangler` config this repo doesn't have. Reach the Pages flow directly at
+`dash.cloudflare.com/<account-id>/pages/new/provider/github` — framework preset
+**None**, build command **empty**, build output directory `/`, production
+branch `main`. Never attach a custom domain to the Pages project; that would
+pull the apex off GitHub Pages and invalidate the certificate.
 
 **The signup form is gated by hostname.** The EmailOctopus embed loads only on
 `altheastix.com` / `www.altheastix.com`. Any other host — localhost, any
