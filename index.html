@@ -153,8 +153,14 @@ a{color:inherit}
 /* Deliberately scoped to custom work, not catalogue ordering — see the eBay
    hard rules in CLAUDE.md. Quiet band: a ghost button, never flame. */
 .special{background:var(--bg-2);border-top:1px solid var(--rule);
-  padding:3.4rem 1.5rem;text-align:center}
-.special-lead{max-width:44ch;margin:0 auto 1.5rem;color:var(--muted);font-size:.97rem}
+  padding:5rem 1.5rem;text-align:center}
+.special h2{font-family:var(--display);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:600;
+  letter-spacing:-.01em;color:var(--fg);margin-bottom:.7rem}
+.special-lead{max-width:46ch;margin:0 auto 1.9rem;color:var(--muted);font-size:1rem}
+/* Ghost button, never flame — flame points at the marketplaces. Prominence comes
+   from the heading and the space around it, not from stealing the action colour. */
+.special .btn{padding:.85rem 1.75rem;font-size:1rem;border-color:var(--muted)}
+.special .btn:hover{border-color:var(--fg)}
 
 /* ── Footer ────────────────────────────────── */
 footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5rem 3rem;
@@ -359,6 +365,7 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
 </section>
 
 <section class="special">
+  <h2>Something special in mind?</h2>
   <p class="special-lead">Custom sizes, finishes, or a design that isn&rsquo;t in the shop yet &mdash;
   tell us what you&rsquo;re after and we&rsquo;ll see what we can do.</p>
   <a class="btn btn-ghost" href="mailto:sales@altheastix.com?subject=Special%20order">Special order? Contact us →</a>
