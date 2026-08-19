@@ -60,6 +60,12 @@ a{color:inherit}
   color:var(--muted);line-height:1.6}
 .tagline em{font-style:normal;color:var(--fg)}
 .hero-ctas{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin:2.6rem 0 0}
+/* Quiet third way out of the hero. Muted with a hairline underline — it must not
+   read as a third button competing with the two above it. */
+.hero-alt{display:inline-block;margin-top:1.15rem;font-size:.88rem;color:var(--muted);
+  text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;
+  transition:color .18s ease,border-color .18s ease}
+.hero-alt:hover{color:var(--fg);border-color:var(--fg)}
 
 /* ── Buttons ───────────────────────────────── */
 .btn{display:inline-block;font-weight:500;text-decoration:none;padding:.72rem 1.45rem;
@@ -194,7 +200,7 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
 @media (prefers-reduced-motion:reduce){
   .marquee-track{animation:none}
   html{scroll-behavior:auto}
-  .btn,.song,.song-art,.tk-embed button,.foot-links a{transition:none}
+  .btn,.song,.song-art,.tk-embed button,.foot-links a,.hero-alt{transition:none}
   .song:hover .song-art{transform:none}
 }
 </style>
@@ -241,6 +247,7 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:4.5rem 1.5r
     <a class="btn btn-primary" href="#join">Join the family</a>
     <a class="btn btn-ghost" href="https://www.ebay.com/str/altheastix" target="_blank" rel="noopener">Shop on eBay →</a>
   </div>
+  <a class="hero-alt" href="mailto:sales@altheastix.com?subject=Special%20order">or just contact us</a>
 
   <!-- crowd silhouette: hands in the air -->
   <div class="crowd" aria-hidden="true">
